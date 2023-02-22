@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Entry</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="mystylesheet.css">
+        <script src="details.js" defer></script>
+        <script>
+            function change() {
+                location.assign("index.html");
+            }
+        </script>
+        
+        <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+	    
+	    background-color: #e2e2e2;
+        }
+        .btn{
+	    text-align: center;
+		background-color: #5d93dfd9;
+		color: black;
+		font-size: 15px;
+		font-weight: bold;
+		border-radius: 1em;
+        border-color: black;
+		cursor: pointer;
+		height: 40px;
+		width: 120px;
+        }
+        .btn:focus,.btn:hover{
+            background-color: #1b648e;
+            color: white;
+        }
+        input[type=text] {
+        width: 50%;
+	    margin: 10px 0;
+	    padding: 10px 20px;
+        border: 1px solid #c9c9c9;
+        border-radius: 5px;
+        }
+        label{
+            font-weight: bold;
+            color: #336577;
+            font-size: 24px;
+        }
+        #footer{
+        background-color: #c9c4c4b7;
+        text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top:20%;
+        font-size: 18px;
+        clear: both;
+        font-weight: bold;
+            
+        }
+        </style>
+        
+    </head>
+    <body>
+        <div id="header">
+            &nbsp;&nbsp;<img onclick="change()" src="cctv.jpg"
+                style="padding: 14px 16px; display: block; width: 90px; height: 70px; float: left;">
+            <a href="mainpage.html">Home</a>
+        
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label>Date</label>
+        <br>
+        <input id="date" type="text" placeholder="Date" size="25">
+        <br>
+        <br>
+        <label>Start Time</label>
+        <br>
+        <input id="starttime" type="text" placeholder="Start Time" size="25">
+        <br>
+        <br>
+        <label>End Time</label>
+        <br>
+        <input id="endtime" type="text" placeholder="End Time" size="25">
+        <br>
+        <br>
+        <button onclick="getDetails()" class="btn">Submit Data</button>
+       
+        <div id="footer" style="margin-top: 15%;">&copy;Blockchain-Based Surveillance Framework</div>
+       
+    </body>
+</html>

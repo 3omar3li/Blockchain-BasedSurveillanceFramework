@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="mystylesheet.css">
+    <title>Map</title>
+
+    <style>
+        input[type=text] {
+        width: 40%;
+	    margin: 10px ;
+	    padding: 10px 20px;
+        border: 1px solid #c9c9c9;
+        border-radius: 5px;
+        }
+        label{
+            margin: 10px ;
+            font-weight: bold;
+            color: #336577;
+            font-size: 24px;
+        }
+        #footer{
+            background-color: #c9c4c4b7;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 18px;
+           
+            clear: both;
+            font-weight: bold;    
+        }
+      
+        #Container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            
+            align-items: center;
+        }
+
+        #map {
+            
+            height: 80vh;
+            width: 80vh;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e2e2e2;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        &nbsp;&nbsp;<img onclick="change()" src="cctv.jpg"
+            style="padding: 14px 16px; display: block; width: 50px; height: 40px; float: left;">
+    
+        
+        <a href="mainpage.html">Home</a>
+    
+    </div>
+    <div id="Container">
+        <div id="map"></div>
+    </div>
+
+    <div style="display: flex;">
+    
+    
+    <button class="buttons" onclick="camera()">Add Camera</button>
+    <button class="buttons" onclick="zone()">Add Zone</button>
+
+    </div>
+
+    <div style="visibility: hidden;">
+        <label id="cameraiplabel">Enter camera ip</label>
+        <br>
+        <input id="cameraip" placeholder="Enter Camera ip" type="text">
+        <br>
+        <label id="cameralatitudelabel">Enter camera Latitude</label>
+        <br>
+        <input id="cameralatitude" placeholder="Enter camera Latitude" type="text">
+        <br>
+        <label id="cameralongitudelabel">Enter camera longitude</label>
+        <br>
+        <input id="cameralongitude" type="text" placeholder="Enter camera longitude">
+        <button onclick="done()" id="cameradone" class="buttons">Done</button>
+    </div>
+
+    <div style="visibility: hidden;">
+        <label id="zonenamelabel">Enter zone name</label>
+        <br>
+        <input id="zonename" placeholder="Enter zone name" type="text">
+        <br>
+        <label id="latitudelabel">Enter Latitude</label>
+        <br>
+        <input id="latitude" placeholder="Enter Latitude" type="text">
+        <br>
+        <label id="longitudelabel">Enter longitude</label>
+        <br>
+        <input id="longitude" type="text" placeholder="Enter longitude">
+        <button onclick="done()" id="zonedone" class="buttons">Done</button>
+    </div>
+    
+    
+    
+    <script>
+        let mapOptions = {
+                center: { lat: 31.305033051535126, lng: 30.06398499004381 },
+                zoom: 12
+            }
+
+            let map ;
+
+            function initMap() {
+
+              map  = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            let markerOptions = {
+                position: new google.maps.LatLng(31.30781973541825, 30.063727497979503)
+
+            }
+            let markerOptions2 = {
+                position: new google.maps.LatLng(31.24040016786985, 29.955760875620996)
+
+            }
+
+            let markerOptions3 = {
+                position: new google.maps.LatLng(31.27953647083658, 30.009197207511445)
+
+            }
+
+
+
+            let marker = new google.maps.Marker(markerOptions);
+            marker.setMap(map);
+            marker.value='tram&&gleem';
+
+            let marker2 = new google.maps.Marker(markerOptions2);
+            marker2.setMap(map);
+            marker2.value='456';
+
+            let marker3 = new google.maps.Marker(markerOptions3);
+            marker3.setMap(map);
+            marker3.value='789';
+            
+            marker.addListener('click',(googleMapsEvent) =>{
+            var queryString = "?para1=" + marker.value;
+                window.location.href = "dataentry.html" + queryString;
+            
+            })
+
+                // axios({
+            //     method:'post',
+            //     url:"http://localhost:3000/archiveStream",
+            //     headers:{},
+            //     window:alert(marker.value)
+            // })})
+            
+            marker2.addListener('click', (googleMapsEvent) => {
+            var queryString = "?para1=" + marker2.value;
+                window.location.href = "dataentry.html" + queryString;
+            
+            
+            })
+            marker3.addListener('click', (googleMapsEvent) => {
+            var queryString = "?para1=" + marker3.value;
+                window.location.href = "dataentry.html" + queryString;
+                
+            })
+            
+        }
+        function done() {
+                let mapOptions = {
+                    center: { lat: 31.305033051535126, lng: 30.06398499004381 },
+                    zoom: 12
+                }
+                // let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+                let markerOptions = {
+                    position: new google.maps.LatLng(document.getElementById("cameralatitude").value, document.getElementById("cameralongitude").value)
+
+                }
+                let marker = new google.maps.Marker(markerOptions);
+                marker.setMap(map);
+                marker.value = 'new';
+            }
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtAY-zcNHlFR9IvybCI4kYKKdxsuCguvY&callback=initMap"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+
+    <br>
+    <div id="footer" style="margin-top: 0%;">&copy; Blockchain-Based Surveillance Framework</div>
+    <script>
+        function change() {
+            location.assign("mainpage.html");
+        }
+        function camera(){
+            document.getElementById("cameraiplabel").style.visibility = "visible";
+            document.getElementById("cameraip").style.visibility = "visible";
+            document.getElementById("cameralatitudelabel").style.visibility = "visible";
+            document.getElementById("cameralatitude").style.visibility = "visible";
+            document.getElementById("cameralongitudelabel").style.visibility = "visible";
+            document.getElementById("cameralongitude").style.visibility = "visible";
+            document.getElementById("zonenamelabel").style.visibility = "hidden";
+            document.getElementById("zonename").style.visibility = "hidden";
+            document.getElementById("latitudelabel").style.visibility = "hidden";
+            document.getElementById("latitude").style.visibility = "hidden";
+            document.getElementById("longitudelabel").style.visibility = "hidden";
+            document.getElementById("longitude").style.visibility = "hidden";
+            document.getElementById("zonedone").style.visibility= "hidden";
+            document.getElementById("cameradone").style.visibility = "visible";
+        }
+        function zone(){
+            document.getElementById("zonenamelabel").style.visibility= "visible";
+            document.getElementById("zonename").style.visibility = "visible";
+            document.getElementById("latitudelabel").style.visibility= "visible";
+            document.getElementById("latitude").style.visibility = "visible";
+            document.getElementById("longitudelabel").style.visibility = "visible";
+            document.getElementById("longitude").style.visibility = "visible";
+            document.getElementById("zonedone").style.visibility = "visible";
+            document.getElementById("cameraiplabel").style.visibility = "hidden";
+            document.getElementById("cameraip").style.visibility = "hidden";
+            document.getElementById("cameralatitudelabel").style.visibility = "hidden";
+            document.getElementById("cameralatitude").style.visibility = "hidden";
+            document.getElementById("cameralongitudelabel").style.visibility = "hidden";
+            document.getElementById("cameralongitude").style.visibility = "hidden";
+            document.getElementById("cameradone").style.visibility = "hidden";
+        }
+        
+        </script>
+</body>
+
+</html>

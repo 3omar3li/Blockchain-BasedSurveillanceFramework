@@ -1,0 +1,85 @@
+body{
+    background-color: #e2e2e2;
+}
+#header{
+        background: white;
+        overflow: hidden;
+        position: fixed;
+        font-weight: bold;
+        width: 100%;
+        margin-top: -1%;
+        margin-left: -0.5%;
+    }
+#header a{
+
+        font-size: 25px;
+        float: right;
+        display: block;
+        color: #336577;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+#header a:hover{
+    font-size: larger;
+    color: #336577;
+}
+#header a img{
+    float: left;
+}
+.card{
+    margin-top: 10%;
+    position: relative;
+    margin-left: 30%;
+    width: 15cm;
+    height: 9cm;
+    background-color: #f2f2f2b1;
+    border-radius: 8px;
+}
+.card img{
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.card h1{
+    text-align: center;
+}
+
+#footer{
+    background-color: #d9d8d8e6;
+    text-align: center;
+    border-radius: 10px;
+    color: #336577;
+    padding:5px;
+    font-size: 18px;
+    clear: both;
+    font-weight: bold;
+}
+@media screen and (max-width: 800px){
+    #leftcolumn,#rightcolumn{
+        width: 100%;
+        padding: 0;
+    }
+}
+.buttons {
+    text-align: center;
+    background-color: #5d93dfd9;
+    color: black;
+    font-size: 15px;
+    border-radius: 1em;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    margin-left: 150px;
+    border-color: black;
+}
+
+.buttons:hover,
+.buttons:focus {
+    background-color: #1b648e;
+    color: white;
+
+}

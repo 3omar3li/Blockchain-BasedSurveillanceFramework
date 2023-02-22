@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LiveStream Cameras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale:1.0">
+        <link rel="stylesheet" href="mystylesheet.css" type="text/css">
+        <script src="livestreamvideos.js"></script>
+        <script>
+            function change() {
+                location.assign("index.html");
+            }
+        </script>
+        <style>
+            body{
+                background-color: #e2e2e2;
+            }
+            .leftvideos{
+                width: 50%;
+                float: left;
+            }
+    
+            .rightvideos{
+                float: right;
+                width: 50%;
+            
+            }
+            
+        .footer{
+            font-weight: bold;
+            background-color: #d9d8d8e6;
+            font-size: 24px;
+            clear:both;
+            color: #336577;
+            text-align: center;
+            border-radius: 10px;
+        }
+        @media screen and (max-width: 800px){
+        .leftvideos,.rightvideos{
+        width: 100%;
+        padding: 0;
+    }
+}
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            &nbsp;&nbsp;<img onclick="change()" src="cctv.jpg"
+                style="padding: 14px 16px; display: block; width: 50px; height: 40px; float: left;">
+        
+            <a href="mainpage.html">Home</a>
+        
+        </div>
+       
+        <div class="leftvideos">
+        <canvas id="src1" src="" controls width="540" height="300"></canvas>
+        <br>
+        <button class="buttons" id="start1">Startrecord</button>
+        <button class="buttons" id="stop1">Stoprecord</button>
+        <br>
+        <br>
+        <canvas id="src2" src="" controls width="540" height="300"></canvas>
+        <br>
+        <button class="buttons" id="start2">Startrecord</button>
+        <button class="buttons" id="stop2">Stoprecord</button>
+        <br>
+        <br>
+        </div>
+        
+        <div class="rightvideos">
+        
+        <canvas id="src3" src="" controls width="540" height="300"></canvas>
+        <br>
+        <button class="buttons" id="start3">Startrecord</button>
+        <button class="buttons" id="stop3">Stoprecord</button>
+        <br>
+        <br>
+        <canvas id="src4" src="" controls width="540" height="300"></canvas>
+        <br>
+        <button class="buttons" id="start4">Startrecord</button>
+        <button class="buttons" id="stop4">Stoprecord</button>
+        </div>
+
+        <div class="footer">&copy; Blockchain-Based Surveillance Framework</div>
+     </body>
+</html>

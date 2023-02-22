@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="mystylesheet.css">
+    <style>
+        body{
+        background-color: #e2e2e2;
+        }
+         .butn {
+            
+            position: fixed;
+            width: 1000px;
+            height: 600px;
+            top: 20%;
+            left: 42%;
+            margin-top: -100px;
+            margin-left: -280px;
+            display: flex;
+            align-items: center;
+        }
+        .buttons {
+            text-align: center;
+            background-color:#5d93dfd9 ;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 1em ;
+            cursor: pointer;
+            height: 5cm;
+            width: 5cm;
+            margin: 40px;
+            border-width: 4px;
+            border-color: black;
+        }
+
+        .buttons:hover,
+        .buttons:focus {
+            background-color: #1b648e;
+            color: white;
+        
+        }
+        
+        #mainheader{
+            background-color: #c9c4c4b7;
+            font-weight:bold ;
+            height: 50px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        #footer{
+            background-color: #c9c4c4b7;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 18px;
+            margin-top: 565px;
+            clear: both;
+            font-weight: bold;
+        }
+    
+       
+        
+    </style>
+</head>
+
+<body>
+
+    
+    <div id="header" >
+        &nbsp;&nbsp;<img onclick="change()" src="cctv.jpg"
+            style="padding: 14px 16px; display: block; width: 50px; height: 40px; float: left;">
+            
+            <a href="logout.php">Signout</a>
+            <a href="mainpage.html">Home</a>
+        
+    </div>
+   
+    
+ 
+    <br><br>
+    <div class="butn">
+        <button id="myBtn" onclick="myFunction" class="buttons">Recorded Footage</button>
+        <button  onclick="changepage()" class="buttons">Watch LiveStream</button>
+        <button onclick="savedeventbutton()" class="buttons">Saved Events</button>
+    </div>
+
+    
+    <script>
+        // Get the button, and when the user clicks on it, execute myFunction
+        document.getElementById("myBtn").onclick = function () { myFunction() };
+
+        /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+        function myFunction() {
+            location.assign("map.html")
+        }
+        function changepage(){
+            location.assign("livestreamvideos.html")
+        }
+        function savedeventbutton(){
+            location.assign("savedevent.html")
+        }
+    </script>
+    <div id="footer" style="margin-top:41% ;">&copy; Blockchain-Based Surveillance Framework</div>
+
+    <script>
+        function change() {
+            location.assign("mainpage.html");
+        }
+    </script>
+</body>
+
+</html>

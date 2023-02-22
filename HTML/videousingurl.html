@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video URL</title>
+        <meta charset="UTF-8" />
+        <script src="details.js" defer></script>
+        <style>
+        body{
+	    background: #e2e2e2;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <video id="vidid" autoplay controls  width="800" height="320"></video>
+        <script>
+            const vidObject = document.getElementById('vidid');
+            const source = document.createElement('source');
+            source.setAttribute('src', 'url');
+            source.setAttribute('type', 'video/mp4');
+            vidObject.appendChild(source);
+
+        </script>
+        <script>
+            function change() {
+                location.assign("index.html");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <video id="vidid" autoplay controls  width="800" height="320"></video>
+        <script>
+            var queryString = decodeURIComponent(window.location.search);
+            queryString = queryString.substring(1);
+            var queries = queryString.split("para1=");
+            console.log(queries[1]);
+            const vidObj = document.getElementById('vidid');
+            const sourc = document.createElement('source');
+            sourc.setAttribute('src',queries[1]);
+            sourc.setAttribute('type' , 'video/mp4' );
+            vidObj.appendChild(sourc);
+            
+        </script>
+        <script>
+            function change() {
+                location.assign("index.html");
+            }
+        </script>
+        <br>
+        <button style="text-align: center;background-color: #5d93dfd9;color: black;font-size: 15px;font-weight: bold;border-radius: 1em;
+            border-color: black;cursor: pointer;height: 40px;width: 120px;"
+            onclick="window.location.assign = 'getArchiveInput.html'" class="btn">
+            Archive
+        </button>
+    </div>
+
+    <footer style="background-color: #d9d8d8e6;text-align: center;border-radius: 10px;color: #336577;padding:5px;
+    font-size: 18px;clear: both;font-weight: bold; margin-top: 20%;">&copy;Blockchain-Based Surveillance Framework</footer>
+</body>
+</html>
